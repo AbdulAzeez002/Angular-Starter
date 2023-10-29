@@ -1,0 +1,122 @@
+<!-- <div class="main">
+    <div class="form">
+        <div class="title">Welcome</div>
+        <div class="subtitle">Let's create your account!</div>
+        <form (ngSubmit)="onSubmit()">
+        <div class="input-container ic1">
+          <input id="firstname" class="input" type="text" placeholder=" " name="name" [(ngModel)]="name"/>
+          <div class="cut"></div>
+          <label for="firstname" class="placeholder">First name</label>
+        </div>
+        <div class="input-container ic2">
+          <input id="lastname" class="input" type="text" placeholder=" " name="message" [(ngModel)]="message"/>
+          <div class="cut"></div>
+          <label for="lastname" class="placeholder">Message</label>
+        </div>
+        <div class="input-container ic2">
+          <input id="email" class="input" type="text" placeholder=" " name="email" [(ngModel)]="email"/>
+          <div class="cut cut-short"></div>
+          <label for="email" class="placeholder">Email</label>
+        </div>
+        <button type="text" class="submit">submit</button>
+        </form> -->
+
+<!-- <div >
+            <ul class="list-items">
+                <li>name : {{name}}</li>
+                <li>emil : {{email}}</li>
+                <li>message : {{message}}</li>
+    
+            </ul>
+        </div> -->
+
+<!-- <table *ngIf="isSubmitted" class="list-items">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Messge</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                <tr *ngFor="let msg of messages;let i =index" >
+                    <td>{{i+1}}</td>
+                    <td>{{msg.name}}</td>
+                    <td>{{msg.email}}</td>
+                    <td>{{msg.message}}</td>
+                </tr>
+            </tbody>
+        
+        </table> -->
+
+<!-- <div>
+            <app-message-details></app-message-details>
+        </div>
+       
+      </div> -->
+<!-- </div> -->
+
+<div>
+  <div class="d-flex justify-content-center m-2 ">
+    <form class="col-6 border border-black p-4" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input
+          name="name"
+          [(ngModel)]="name"
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+        />
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input
+          name="email"
+          type="email"
+          [(ngModel)]="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Message</label>
+        <input
+          name="message"
+          type="text"
+          [(ngModel)]="message"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
+  </div>
+
+  <!-- <div class="mt-4" *ngIf="isSubmitted">
+      <p class="text-center">Message Details</p>
+      <p>Name : {{name}}</p>
+      <p>Email: {{email}}</p>
+      <p>Message : {{message}}</p>
+    </div> -->
+
+  <div class="d-flex flex-wrap gap-1" *ngIf="isSubmitted">
+    <app-message-details
+      *ngFor="let msg of messages; let i = index"
+      [message]="msg"
+      [index]="i"
+      (delete)="deleteMessage($event)"
+    ></app-message-details>
+  </div>
+</div>
